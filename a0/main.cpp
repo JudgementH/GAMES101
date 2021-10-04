@@ -45,6 +45,14 @@ int main() {
 //     matrix scalar multiply i * 2.0
 //     matrix multiply i * j
 //     matrix multiply vector i * v
+    std::cout << "Assignment 0 start!" << std::endl;
+    Eigen::Vector3f p(2.0f, 1.0f,1.0f);
+    Eigen::Matrix<float, 3, 3> T;
+    T << cos(45), -sin(45), 1,
+            sin(45), cos(45), 2,
+            0, 0, 1;
+    Eigen::Vector3f res = T * p;
+    std::cout << res << std::endl;
 
     return 0;
 }
