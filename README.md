@@ -25,3 +25,30 @@ IDE：Clion
 
 修改为`include_directories("C:/Program Files (x86)/Eigen3/include")`（这里给出的是Eigen默认安装位置，可根据自己需要调整）
 
+
+
+# Assignment 1（a1）旋转、投影
+
+
+
+## 关于CMakeLists
+
+导包opencv，同样参考a0文章进行opencv的安装
+
+修改`include_directories(/usr/local/include)`，
+
+添加自己的opencv安装位置如`include_directories("E:/include/opencv-cpp/opencv/sources/build/install")`
+
+
+
+导包eigen
+
+需要添加`find_package(Eigen3 REQUIRED)`
+
+同时添加`include_directories("C:/Program Files (x86)/Eigen3/include")`
+
+
+
+## 结果
+
+![image-20211005131053984](https://cdn.jsdelivr.net/gh/JudgementH/image-host/md/image-20211005131053984.png)
