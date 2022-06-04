@@ -1,0 +1,1 @@
+-I/usr/local/include -isystem E:/PROGRA~1/vcpkg/INSTAL~1/X64-MI~1/include/eigen3 -isystem E:/include/opencv-cpp/opencv/sources/build/install/include 

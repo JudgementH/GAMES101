@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Rasterizer"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\Program Files\;CMake Files\Program Files\vcpkg\;CMake Files\Program Files\vcpkg\scripts\;CMake Files\Program Files\vcpkg\scripts\buildsystems\;CMake Files\Program Files\vcpkg\installed\;CMake Files\Program Files\vcpkg\installed\x64-mingw-static\;CMake Files\Program Files\vcpkg\installed\x64-mingw-static\share\;CMake Files\Program Files\vcpkg\installed\x64-mingw-static\share\eigen3\;CMake Files\include\;CMake Files\include\opencv-cpp\;CMake Files\include\opencv-cpp\opencv\;CMake Files\include\opencv-cpp\opencv\sources\;CMake Files\include\opencv-cpp\opencv\sources\build\;CMake Files\include\opencv-cpp\opencv\sources\build\install\;CMake Files\include\opencv-cpp\opencv\sources\build\install\x64\;CMake Files\include\opencv-cpp\opencv\sources\build\install\x64\mingw\;CMake Files\include\opencv-cpp\opencv\sources\build\install\x64\mingw\lib\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="G:/code/GAMES101/a2/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="E:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;G:/code/GAMES101/a2/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="E:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;G:/code/GAMES101/a2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="E:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;G:/code/GAMES101/a2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="E:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;G:/code/GAMES101/a2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="G:/code/GAMES101/a2/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="E:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;G:/code/GAMES101/a2/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="E:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;G:/code/GAMES101/a2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="E:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;G:/code/GAMES101/a2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="E:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;G:/code/GAMES101/a2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Rasterizer">
+				<Option output="G:/code/GAMES101/a2/cmake-build-debug/Rasterizer.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="G:/code/GAMES101/a2/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="E:/Program Files/vcpkg/installed/x64-mingw-static/include/eigen3"/>
+					<Add directory="E:/include/opencv-cpp/opencv/sources/build/install/include"/>
+					<Add directory="E:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="E:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="E:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="E:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="E:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="E:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="E:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;G:/code/GAMES101/a2/cmake-build-debug/Makefile&quot;  VERBOSE=1 Rasterizer"/>
+					<CompileFile command="E:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;G:/code/GAMES101/a2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="E:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;G:/code/GAMES101/a2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="E:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;G:/code/GAMES101/a2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Rasterizer/fast">
+				<Option output="G:/code/GAMES101/a2/cmake-build-debug/Rasterizer.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="G:/code/GAMES101/a2/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="E:/Program Files/vcpkg/installed/x64-mingw-static/include/eigen3"/>
+					<Add directory="E:/include/opencv-cpp/opencv/sources/build/install/include"/>
+					<Add directory="E:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="E:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="E:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="E:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="E:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="E:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="E:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;G:/code/GAMES101/a2/cmake-build-debug/Makefile&quot;  VERBOSE=1 Rasterizer/fast"/>
+					<CompileFile command="E:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;G:/code/GAMES101/a2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="E:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;G:/code/GAMES101/a2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="E:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;G:/code/GAMES101/a2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="G:/code/GAMES101/a2/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="E:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;G:/code/GAMES101/a2/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="E:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;G:/code/GAMES101/a2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="E:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;G:/code/GAMES101/a2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="E:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;G:/code/GAMES101/a2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="G:/code/GAMES101/a2/Triangle.cpp">
+			<Option target="Rasterizer"/>
+		</Unit>
+		<Unit filename="G:/code/GAMES101/a2/Triangle.hpp">
+			<Option target="Rasterizer"/>
+		</Unit>
+		<Unit filename="G:/code/GAMES101/a2/global.hpp">
+			<Option target="Rasterizer"/>
+		</Unit>
+		<Unit filename="G:/code/GAMES101/a2/main.cpp">
+			<Option target="Rasterizer"/>
+		</Unit>
+		<Unit filename="G:/code/GAMES101/a2/rasterizer.cpp">
+			<Option target="Rasterizer"/>
+		</Unit>
+		<Unit filename="G:/code/GAMES101/a2/rasterizer.hpp">
+			<Option target="Rasterizer"/>
+		</Unit>
+		<Unit filename="G:/code/GAMES101/a2/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="G:/code/GAMES101/a2/Program Files/vcpkg/scripts/buildsystems/vcpkg.cmake">
+			<Option virtualFolder="CMake Files\Program Files\vcpkg\scripts\buildsystems\"/>
+		</Unit>
+		<Unit filename="G:/code/GAMES101/a2/Program Files/vcpkg/installed/x64-mingw-static/share/eigen3/Eigen3Config.cmake">
+			<Option virtualFolder="CMake Files\Program Files\vcpkg\installed\x64-mingw-static\share\eigen3\"/>
+		</Unit>
+		<Unit filename="G:/code/GAMES101/a2/Program Files/vcpkg/installed/x64-mingw-static/share/eigen3/Eigen3ConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\Program Files\vcpkg\installed\x64-mingw-static\share\eigen3\"/>
+		</Unit>
+		<Unit filename="G:/code/GAMES101/a2/Program Files/vcpkg/installed/x64-mingw-static/share/eigen3/Eigen3Targets.cmake">
+			<Option virtualFolder="CMake Files\Program Files\vcpkg\installed\x64-mingw-static\share\eigen3\"/>
+		</Unit>
+		<Unit filename="G:/code/GAMES101/a2/include/opencv-cpp/opencv/sources/build/install/OpenCVConfig-version.cmake">
+			<Option virtualFolder="CMake Files\include\opencv-cpp\opencv\sources\build\install\"/>
+		</Unit>
+		<Unit filename="G:/code/GAMES101/a2/include/opencv-cpp/opencv/sources/build/install/OpenCVConfig.cmake">
+			<Option virtualFolder="CMake Files\include\opencv-cpp\opencv\sources\build\install\"/>
+		</Unit>
+		<Unit filename="G:/code/GAMES101/a2/include/opencv-cpp/opencv/sources/build/install/x64/mingw/lib/OpenCVConfig.cmake">
+			<Option virtualFolder="CMake Files\include\opencv-cpp\opencv\sources\build\install\x64\mingw\lib\"/>
+		</Unit>
+		<Unit filename="G:/code/GAMES101/a2/include/opencv-cpp/opencv/sources/build/install/x64/mingw/lib/OpenCVModules-release.cmake">
+			<Option virtualFolder="CMake Files\include\opencv-cpp\opencv\sources\build\install\x64\mingw\lib\"/>
+		</Unit>
+		<Unit filename="G:/code/GAMES101/a2/include/opencv-cpp/opencv/sources/build/install/x64/mingw/lib/OpenCVModules.cmake">
+			<Option virtualFolder="CMake Files\include\opencv-cpp\opencv\sources\build\install\x64\mingw\lib\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

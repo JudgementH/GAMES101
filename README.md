@@ -3,7 +3,11 @@ Course assignments for GAMES101
 
 
 
-# Assignment 0 （a0）环境配置
+作业的初始源代码可以在[GAMES论坛](https://games-cn.org/forums/topic/allhw/)中找到
+
+
+
+# Assignment 0 (a0) 环境配置
 
 操作系统：Windows 10
 
@@ -27,7 +31,13 @@ IDE：Clion
 
 
 
-# Assignment 1（a1）旋转、投影
+**更便捷的安装方式**
+
+可以尝试使用微软的vcpkg（cpp库管理工具，类似pip）进行库的安装
+
+
+
+# Assignment 1 (a1) 旋转、投影
 
 
 
@@ -52,3 +62,45 @@ IDE：Clion
 ## 结果
 
 ![image-20211005131053984](https://cdn.jsdelivr.net/gh/JudgementH/image-host/md/image-20211005131053984.png)
+
+
+
+## 倒三角问题
+
+得到的三角形和理论描述不一样，是因为**三角形的z坐标都是负值，但照相机是在（0，0，0）并且看向z轴的正方向，即三角形在照相机的后面**。根据projection投影的推导，相当于是倒立的，这和小孔成像倒立的原因是一样的。
+
+
+
+## 如何修正倒三角？
+
+可以把照相机参数中近平面和远平面取负值。
+
+```c++
+Eigen::Matrix4f get_projection_matrix(float eye_fov, float aspect_ratio,
+                                      float zNear, float zFar) {
+    zNear = -zNear;	//取负值
+    zFar = -zFar;	//取负值
+    // Students will implement this function
+    Eigen::Matrix4f projection = Eigen::Matrix4f::Identity();
+
+    // TODO: Implement this function
+    // Create the projection matrix for the given parameters.
+    // Then return it.
+    return projection;
+}
+```
+
+结果可以恢复正常。
+
+![image-20220604125423511](https://cdn.jsdelivr.net/gh/JudgementH/image-host/md/image-20220604125424680.png)
+
+
+
+# Assignment 2 (a2) 三角形、z-buffer
+
+
+
+## 结果
+
+![image-20220604131328379](https://cdn.jsdelivr.net/gh/JudgementH/image-host/md/image-20220604131328379.png)
+

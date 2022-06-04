@@ -1,0 +1,9 @@
+"E:\Jet Brain toolsbox\apps\CLion\ch-0\192.7142.39\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_TOOLCHAIN_FILE=E:\\Program Files\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake" -G "CodeBlocks - MinGW Makefiles" G:\code\GAMES101\a2
+-- OpenCV ARCH: x64
+-- OpenCV RUNTIME: mingw
+-- OpenCV STATIC: OFF
+-- Found OpenCV 4.5.3 in E:/include/opencv-cpp/opencv/sources/build/install/x64/mingw/lib
+-- You might need to add E:/include/opencv-cpp/opencv/sources/build/install/x64/mingw/bin to your PATH to be able to run your applications.
+-- Configuring done
+-- Generating done
+-- Build files have been written to: G:/code/GAMES101/a2/cmake-build-debug
