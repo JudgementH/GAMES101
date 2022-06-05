@@ -40,4 +40,7 @@ a1/.vscode/
 a1/.idea/
 a1/cmake-build-debug
 a1/.vscode/
-
+a2/.idea/
+a2/.vscode/
+a2/build/
+a2/cmake-build-debug

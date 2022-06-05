@@ -2626,17 +2626,17 @@ Eigen/Eigen
 
 G:/code/GAMES101/a2/global.hpp
 
-G:/code/GAMES101/a2/main.cpp
-iostream
+G:/code/GAMES101/a2/rasterizer.cpp
+algorithm
 -
-opencv2/opencv.hpp
+vector
 -
 rasterizer.hpp
 G:/code/GAMES101/a2/rasterizer.hpp
-global.hpp
-G:/code/GAMES101/a2/global.hpp
-Triangle.hpp
-G:/code/GAMES101/a2/Triangle.hpp
+opencv2/opencv.hpp
+-
+math.h
+-
 
 G:/code/GAMES101/a2/rasterizer.hpp
 Eigen/Eigen

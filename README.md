@@ -104,3 +104,12 @@ Eigen::Matrix4f get_projection_matrix(float eye_fov, float aspect_ratio,
 
 ![image-20220604131328379](https://cdn.jsdelivr.net/gh/JudgementH/image-host/md/image-20220604131328379.png)
 
+
+
+## SSAA2x
+
+![image-20220606022913722](https://cdn.jsdelivr.net/gh/JudgementH/image-host/md/image-20220606022913722.png)
+
+
+
+MSAA
