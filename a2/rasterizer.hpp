@@ -30,14 +30,20 @@ namespace rst {
         Triangle
     };
 
-    class SSAA {
-    public:
+    struct SSAA {
         int times;
         std::vector<Eigen::Vector3f> frame_buf;
         std::vector<float> depth_buf;
 
         SSAA(int times_) : times(times_) {}
     };
+
+    struct MSAA {
+        int times;
+
+        MSAA(int times_) : times(times_) {}
+    };
+
 
     /*
      * For the curious : The draw function takes two buffer id's as its arguments. These two structs
@@ -61,6 +67,8 @@ namespace rst {
         rasterizer(int w, int h);
 
         rasterizer(int w, int h, SSAA *aa);
+
+        rasterizer(int w, int h, MSAA *aa);
 
         pos_buf_id load_positions(const std::vector<Eigen::Vector3f> &positions);
 
@@ -91,6 +99,8 @@ namespace rst {
 
         void rasterize_triangle_ssaa(const Triangle &t);
 
+        void rasterize_triangle_msaa(const Triangle &t);
+
         // VERTEX SHADER -> MVP -> Clipping -> /.W -> VIEWPORT -> DRAWLINE/DRAWTRI -> FRAGSHADER
 
     private:
@@ -116,6 +126,7 @@ namespace rst {
 
         int get_next_id() { return next_id++; }
 
-        SSAA *ssaa;
+        SSAA *ssaa = nullptr;
+        MSAA *msaa = nullptr;
     };
 }

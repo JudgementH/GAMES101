@@ -50,10 +50,11 @@ int main(int argc, const char **argv) {
         filename = std::string(argv[1]);
     }
 
-    rst::SSAA *ssaa = new rst::SSAA(2);
+//    rst::SSAA *ssaa = new rst::SSAA(2);
+    auto *msaa = new rst::MSAA(2);
 
 //    rst::rasterizer r(700, 700);
-    rst::rasterizer r(700, 700, ssaa);
+    rst::rasterizer r(700, 700, msaa);
 
     Eigen::Vector3f eye_pos = {0, 0, 5};
 
@@ -126,7 +127,7 @@ int main(int argc, const char **argv) {
         std::cout << "frame count: " << frame_count++ << '\n';
     }
 
-    delete ssaa;
+    delete msaa;
     return 0;
 }
 // clang-format on
