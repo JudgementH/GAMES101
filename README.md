@@ -112,4 +112,57 @@ Eigen::Matrix4f get_projection_matrix(float eye_fov, float aspect_ratio,
 
 
 
-MSAA
+## MSAA2x
+
+![image-20220606103033990](https://cdn.jsdelivr.net/gh/JudgementH/image-host/md/image-20220606103033990.png)
+
+
+
+# Assignment 3 (a3) Shading
+
+
+
+## Phong
+
+![image-20220607140920214](https://cdn.jsdelivr.net/gh/JudgementH/image-host/md/image-20220607140920392.png)
+
+
+
+## Texture
+
+![image-20220607140541425](https://cdn.jsdelivr.net/gh/JudgementH/image-host/md/image-20220607140541425.png)
+
+
+
+## Bump
+
+![image-20220613002949369](https://cdn.jsdelivr.net/gh/JudgementH/image-host/md/image-20220613002949369.png)
+
+
+
+## Displacement
+
+![image-20220613003707284](https://cdn.jsdelivr.net/gh/JudgementH/image-host/md/image-20220613003708919.png)
+
+
+
+## 其他模型
+
+![image-20220613005646540](https://cdn.jsdelivr.net/gh/JudgementH/image-host/md/image-20220613005646540.png)
+
+
+
+## 双线性纹理插值
+
+
+
+**无插值**
+
+<img src="https://cdn.jsdelivr.net/gh/JudgementH/image-host/md/image-20220613114728259.png" alt="image-20220613114728259" style="zoom:200%;" />
+
+
+
+**插值**
+
+<img src="https://cdn.jsdelivr.net/gh/JudgementH/image-host/md/image-20220613121533029.png" alt="image-20220613121533029" style="zoom: 200%;" />
+
