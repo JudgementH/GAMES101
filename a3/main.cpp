@@ -13,7 +13,9 @@ Eigen::Matrix4f get_view_matrix(Eigen::Vector3f eye_pos)
     Eigen::Matrix4f view = Eigen::Matrix4f::Identity();
 
     Eigen::Matrix4f translate;
-    translate << 1, 0, 0, -eye_pos[0], 0, 1, 0, -eye_pos[1], 0, 0, 1, -eye_pos[2],
+    translate << 1, 0, 0, -eye_pos[0],
+        0, 1, 0, -eye_pos[1],
+        0, 0, 1, -eye_pos[2],
         0, 0, 0, 1;
 
     view = translate * view;
@@ -93,7 +95,7 @@ Eigen::Vector3f texture_fragment_shader(const fragment_shader_payload &payload)
         // fragment
         // return_color = payload.texture->getColor(u, v);
 
-        // 双线性纹理
+        // 双线性纹理.
         return_color = payload.texture->getColorBilinear(u, v);
     }
     Eigen::Vector3f texture_color;
@@ -173,8 +175,7 @@ Eigen::Vector3f phong_fragment_shader(const fragment_shader_payload &payload)
 
         // NOTE: use cwiseProduct() because ka/kd/ks are coefficients
         auto ambient = ka.cwiseProduct(amb_light_intensity);
-        auto diffuse =
-            kd.cwiseProduct(light.intensity / r2) * std::max(0.0f, normal.dot(l));
+        auto diffuse = kd.cwiseProduct(light.intensity / r2) * std::max(0.0f, normal.dot(l));
         auto specular = ks.cwiseProduct(light.intensity / r2) *
                         std::pow(std::max(0.0f, normal.dot(h)), p);
 
