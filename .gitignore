@@ -45,3 +45,6 @@ a3/.idea/
 a3/.vscode/
 a3/build/
 a3/cmake-build-debug
+
+a4/.vscode/
+a4/build/

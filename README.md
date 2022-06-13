@@ -166,3 +166,18 @@ Eigen::Matrix4f get_projection_matrix(float eye_fov, float aspect_ratio,
 
 <img src="https://cdn.jsdelivr.net/gh/JudgementH/image-host/md/image-20220613121533029.png" alt="image-20220613121533029" style="zoom: 200%;" />
 
+
+
+# Assignment 4 (a4) 贝塞尔曲线
+
+## 结果
+
+![image-20220613175801277](https://cdn.jsdelivr.net/gh/JudgementH/image-host/md/image-20220613175801277.png)
+
+![image-20220613175915947](https://cdn.jsdelivr.net/gh/JudgementH/image-host/md/image-20220613175915947.png)
+
+
+
+## 反走样
+
+![image-20220613190249612](https://cdn.jsdelivr.net/gh/JudgementH/image-host/md/image-20220613190249612.png)
