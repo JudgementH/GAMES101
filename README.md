@@ -187,3 +187,25 @@ Eigen::Matrix4f get_projection_matrix(float eye_fov, float aspect_ratio,
 
 
 # Assignment 5 (a5) 光线与三角形相交
+
+## 结果
+
+![image-20220614140858972](https://cdn.jsdelivr.net/gh/JudgementH/image-host/md/image-20220614140858972.png)
+
+
+
+# Assignment 6 (a6) 光线追踪、加速结构、BVH、SVH
+
+
+
+## 结果
+
+![image-20220614205201157](https://cdn.jsdelivr.net/gh/JudgementH/image-host/md/image-20220614205201157.png)
+
+用时7s
+
+
+
+## SAH
+
+改为BVH使用SAH划分后，仍为7s加速不太明显。
