@@ -57,13 +57,13 @@ void bezier(const std::vector<cv::Point2f> &control_points, cv::Mat &window)
         window.at<cv::Vec3b>(point.y, point.x)[1] = 255;
 
         std::vector<cv::Point2f> points(4);
-        points[0] = cv::Point2f(std::floorf(point.x), std::floorf(point.y));
-        points[1] = cv::Point2f(std::ceilf(point.x), std::floorf(point.y));
-        points[2] = cv::Point2f(std::ceilf(point.x), std::ceilf(point.y));
-        points[3] = cv::Point2f(std::floorf(point.x), std::ceilf(point.y));
+        points[0] = cv::Point2f(std::floorf(point.x - 0.5f), std::floorf(point.y - 0.5f));
+        points[1] = cv::Point2f(std::ceilf(point.x - 0.5f), std::floorf(point.y - 0.5f));
+        points[2] = cv::Point2f(std::ceilf(point.x - 0.5f), std::ceilf(point.y - 0.5f));
+        points[3] = cv::Point2f(std::floorf(point.x - 0.5f), std::ceilf(point.y - 0.5f));
 
-        float x_near = std::floorf(point.x + 0.5f);
-        float y_near = std::floorf(point.y + 0.5);
+        float x_near = std::floorf(point.x);
+        float y_near = std::floorf(point.y);
 
         float d_near = sqrtf((point.x - x_near) * (point.x - x_near) + (point.y - y_near) * (point.y - y_near));
 

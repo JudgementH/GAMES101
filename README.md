@@ -181,3 +181,9 @@ Eigen::Matrix4f get_projection_matrix(float eye_fov, float aspect_ratio,
 ## 反走样
 
 ![image-20220613190249612](https://cdn.jsdelivr.net/gh/JudgementH/image-host/md/image-20220613190249612.png)
+
+
+
+
+
+# Assignment 5 (a5) 光线与三角形相交
