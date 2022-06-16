@@ -1,3 +1,0 @@
-G:/code/GAMES101/a7/build/CMakeFiles/RayTracing.dir
-G:/code/GAMES101/a7/build/CMakeFiles/ALL_BUILD.dir
-G:/code/GAMES101/a7/build/CMakeFiles/ZERO_CHECK.dir

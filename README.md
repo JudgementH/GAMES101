@@ -209,3 +209,22 @@ Eigen::Matrix4f get_projection_matrix(float eye_fov, float aspect_ratio,
 ## SAH
 
 改为BVH使用SAH划分后，仍为7s加速不太明显。
+
+
+
+# Assignment 7 (a7) 路径追踪
+
+
+
+## 结果
+
+![image-20220617030348242](https://cdn.jsdelivr.net/gh/JudgementH/image-host/md/image-20220617030348242.png)
+
+用时
+
+```
+Time taken: 0 hours
+          : 6 minutes
+          : 370 seconds
+```
+
