@@ -1,0 +1,10 @@
+^G:\CODE\GAMES101\A7\CMAKELISTS.TXT
+setlocal
+"E:\Program Files\CMake\bin\cmake.exe" -SG:/code/GAMES101/a7 -BG:/code/GAMES101/a7/build --check-stamp-file G:/code/GAMES101/a7/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
