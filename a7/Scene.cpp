@@ -87,7 +87,7 @@ Vector3f Scene::castRay(const Ray &ray, int depth) const
 
     Ray test_ray(inter.coords, normalize(light_point.coords - inter.coords));
     Intersection test_inter = intersect(test_ray);
-    if (test_inter.distance - light_point.distance < eps)
+    if ((test_inter.coords - light_point.coords).norm() < eps)
     {
         l_dir += light_point.emit *
                  dotProduct(light_point.normal, -test_ray.direction) /

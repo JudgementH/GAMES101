@@ -245,7 +245,8 @@ Vector3f Material::eval(const Vector3f &wi, const Vector3f &wo, const Vector3f &
             float ks_ = F;
             float kd_ = 1.0f - ks_;
 
-            return Ks * specular + kd_ * Kd / M_PI;
+            return ks_ * specular + kd_ * Kd / M_PI;
+            // return specular;
         }
         else
             return Vector3f(0.0f);
