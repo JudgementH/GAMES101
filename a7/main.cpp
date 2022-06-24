@@ -1,4 +1,4 @@
-#include <chrono>
+﻿#include <chrono>
 
 #include "Renderer.hpp"
 #include "Scene.hpp"
@@ -22,6 +22,10 @@ int main(int argc, char **argv)
     green->Kd = Vector3f(0.14f, 0.45f, 0.091f);
     Material *white = new Material(DIFFUSE, Vector3f(0.0f));
     white->Kd = Vector3f(0.725f, 0.71f, 0.68f);
+
+    Material *blue = new Material(MICROFACET, Vector3f(0.0f));
+    blue->Kd = Vector3f(0.065f, 0.05f, 0.63f);
+
     Material *light = new Material(
         DIFFUSE, (8.0f * Vector3f(0.747f + 0.058f, 0.747f + 0.258f, 0.747f) +
                   15.6f * Vector3f(0.740f + 0.287f, 0.740f + 0.160f, 0.740f) +
@@ -29,8 +33,8 @@ int main(int argc, char **argv)
     light->Kd = Vector3f(0.65f);
 
     MeshTriangle floor("./models/cornellbox/floor.obj", white);
-    MeshTriangle shortbox("./models/cornellbox/shortbox.obj", white);
-    MeshTriangle tallbox("./models/cornellbox/tallbox.obj", white);
+    MeshTriangle shortbox("./models/cornellbox/shortbox.obj", blue);
+    MeshTriangle tallbox("./models/cornellbox/tallbox.obj", blue);
     MeshTriangle left("./models/cornellbox/left.obj", red);
     MeshTriangle right("./models/cornellbox/right.obj", green);
     MeshTriangle light_("./models/cornellbox/light.obj", light);

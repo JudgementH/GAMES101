@@ -1,17 +1,40 @@
-//
+﻿//
 // Created by LEI XU on 5/16/19.
 //
 
 #ifndef RAYTRACING_MATERIAL_H
 #define RAYTRACING_MATERIAL_H
-
 #include "Vector.hpp"
 
-enum MaterialType { DIFFUSE};
+enum MaterialType
+{
+    DIFFUSE,
+    MICROFACET
+};
 
-class Material{
+inline float schlick_GGX(const Vector3f &normal, const Vector3f &v, float k)
+{
+    float nDotV = std::max(dotProduct(normal, v), 0.0f);
+    return nDotV / (nDotV * (1 - k) + k);
+}
+
+inline float geometry_smith(const Vector3f &normal, const Vector3f &wi, const Vector3f &wo, float roughness)
+{
+    float ggxL = schlick_GGX(normal, wi, roughness);
+    float ggxV = schlick_GGX(normal, wo, roughness);
+    return ggxL * ggxV;
+}
+
+inline float GGX_NDF(const Vector3f &normal, const Vector3f &half, float roughness)
+{
+    float alpha = roughness * roughness;
+    float denominator = dotProduct(normal, half) * dotProduct(normal, half) * (alpha * alpha - 1) + 1;
+    return (alpha * alpha) / (M_PI * denominator * denominator);
+}
+
+class Material
+{
 private:
-
     // Compute reflection direction
     Vector3f reflect(const Vector3f &I, const Vector3f &N) const
     {
@@ -34,7 +57,15 @@ private:
         float cosi = clamp(-1, 1, dotProduct(I, N));
         float etai = 1, etat = ior;
         Vector3f n = N;
-        if (cosi < 0) { cosi = -cosi; } else { std::swap(etai, etat); n= -N; }
+        if (cosi < 0)
+        {
+            cosi = -cosi;
+        }
+        else
+        {
+            std::swap(etai, etat);
+            n = -N;
+        }
         float eta = etai / etat;
         float k = 1 - eta * eta * (1 - cosi * cosi);
         return k < 0 ? 0 : eta * I + (eta * cosi - sqrtf(k)) * n;
@@ -53,14 +84,19 @@ private:
     {
         float cosi = clamp(-1, 1, dotProduct(I, N));
         float etai = 1, etat = ior;
-        if (cosi > 0) {  std::swap(etai, etat); }
+        if (cosi > 0)
+        {
+            std::swap(etai, etat);
+        }
         // Compute sini using Snell's law
         float sint = etai / etat * sqrtf(std::max(0.f, 1 - cosi * cosi));
         // Total internal reflection
-        if (sint >= 1) {
+        if (sint >= 1)
+        {
             kr = 1;
         }
-        else {
+        else
+        {
             float cost = sqrtf(std::max(0.f, 1 - sint * sint));
             cosi = fabsf(cosi);
             float Rs = ((etat * cosi) - (etai * cost)) / ((etat * cosi) + (etai * cost));
@@ -71,15 +107,18 @@ private:
         // kt = 1 - kr;
     }
 
-    Vector3f toWorld(const Vector3f &a, const Vector3f &N){
+    Vector3f toWorld(const Vector3f &a, const Vector3f &N)
+    {
         Vector3f B, C;
-        if (std::fabs(N.x) > std::fabs(N.y)){
+        if (std::fabs(N.x) > std::fabs(N.y))
+        {
             float invLen = 1.0f / std::sqrt(N.x * N.x + N.z * N.z);
-            C = Vector3f(N.z * invLen, 0.0f, -N.x *invLen);
+            C = Vector3f(N.z * invLen, 0.0f, -N.x * invLen);
         }
-        else {
+        else
+        {
             float invLen = 1.0f / std::sqrt(N.y * N.y + N.z * N.z);
-            C = Vector3f(0.0f, N.z * invLen, -N.y *invLen);
+            C = Vector3f(0.0f, N.z * invLen, -N.y * invLen);
         }
         B = crossProduct(C, N);
         return a.x * B + a.y * C + a.z * N;
@@ -87,16 +126,16 @@ private:
 
 public:
     MaterialType m_type;
-    //Vector3f m_color;
+    // Vector3f m_color;
     Vector3f m_emission;
     float ior;
     Vector3f Kd, Ks;
     float specularExponent;
-    //Texture tex;
+    // Texture tex;
 
-    inline Material(MaterialType t=DIFFUSE, Vector3f e=Vector3f(0,0,0));
+    inline Material(MaterialType t = DIFFUSE, Vector3f e = Vector3f(0, 0, 0));
     inline MaterialType getType();
-    //inline Vector3f getColor();
+    // inline Vector3f getColor();
     inline Vector3f getColorAt(double u, double v);
     inline Vector3f getEmission();
     inline bool hasEmission();
@@ -107,73 +146,112 @@ public:
     inline float pdf(const Vector3f &wi, const Vector3f &wo, const Vector3f &N);
     // given a ray, calculate the contribution of this ray
     inline Vector3f eval(const Vector3f &wi, const Vector3f &wo, const Vector3f &N);
-
 };
 
-Material::Material(MaterialType t, Vector3f e){
+Material::Material(MaterialType t, Vector3f e)
+{
     m_type = t;
-    //m_color = c;
+    // m_color = c;
     m_emission = e;
 }
 
-MaterialType Material::getType(){return m_type;}
-///Vector3f Material::getColor(){return m_color;}
-Vector3f Material::getEmission() {return m_emission;}
-bool Material::hasEmission() {
-    if (m_emission.norm() > EPSILON) return true;
-    else return false;
+MaterialType Material::getType() { return m_type; }
+/// Vector3f Material::getColor(){return m_color;}
+Vector3f Material::getEmission() { return m_emission; }
+bool Material::hasEmission()
+{
+    if (m_emission.norm() > EPSILON)
+        return true;
+    else
+        return false;
 }
 
-Vector3f Material::getColorAt(double u, double v) {
+Vector3f Material::getColorAt(double u, double v)
+{
     return Vector3f();
 }
 
+Vector3f Material::sample(const Vector3f &wi, const Vector3f &N)
+{
+    switch (m_type)
+    {
+    case MICROFACET:
+    case DIFFUSE:
+    {
+        // uniform sample on the hemisphere
+        float x_1 = get_random_float(), x_2 = get_random_float();
+        float z = std::fabs(1.0f - 2.0f * x_1);
+        float r = std::sqrt(1.0f - z * z), phi = 2 * M_PI * x_2;
+        Vector3f localRay(r * std::cos(phi), r * std::sin(phi), z);
+        return toWorld(localRay, N);
 
-Vector3f Material::sample(const Vector3f &wi, const Vector3f &N){
-    switch(m_type){
-        case DIFFUSE:
-        {
-            // uniform sample on the hemisphere
-            float x_1 = get_random_float(), x_2 = get_random_float();
-            float z = std::fabs(1.0f - 2.0f * x_1);
-            float r = std::sqrt(1.0f - z * z), phi = 2 * M_PI * x_2;
-            Vector3f localRay(r*std::cos(phi), r*std::sin(phi), z);
-            return toWorld(localRay, N);
-            
-            break;
-        }
+        break;
+    }
     }
 }
 
-float Material::pdf(const Vector3f &wi, const Vector3f &wo, const Vector3f &N){
-    switch(m_type){
-        case DIFFUSE:
-        {
-            // uniform sample probability 1 / (2 * PI)
-            if (dotProduct(wo, N) > 0.0f)
-                return 0.5f / M_PI;
-            else
-                return 0.0f;
-            break;
-        }
+float Material::pdf(const Vector3f &wi, const Vector3f &wo, const Vector3f &N)
+{
+    switch (m_type)
+    {
+    case MICROFACET:
+    case DIFFUSE:
+    {
+        // uniform sample probability 1 / (2 * PI)
+        if (dotProduct(wo, N) > 0.0f)
+            return 0.5f / M_PI;
+        else
+            return 0.0f;
+        break;
+    }
     }
 }
 
-Vector3f Material::eval(const Vector3f &wi, const Vector3f &wo, const Vector3f &N){
-    switch(m_type){
-        case DIFFUSE:
+Vector3f Material::eval(const Vector3f &wi, const Vector3f &wo, const Vector3f &N)
+{
+    switch (m_type)
+    {
+    case DIFFUSE:
+    {
+        // calculate the contribution of diffuse   model
+        float cosalpha = dotProduct(N, wo);
+        if (cosalpha > 0.0f)
         {
-            // calculate the contribution of diffuse   model
-            float cosalpha = dotProduct(N, wo);
-            if (cosalpha > 0.0f) {
-                Vector3f diffuse = Kd / M_PI;
-                return diffuse;
-            }
-            else
-                return Vector3f(0.0f);
-            break;
+            Vector3f diffuse = Kd / M_PI;
+            return diffuse;
         }
+        else
+            return Vector3f(0.0f);
+        break;
+    }
+
+    case MICROFACET:
+    {
+        float cosalpha = dotProduct(N, wo);
+        if (cosalpha > 0.0f)
+        {
+            float roughness = 0.4f;
+            float F;
+            float etat = 1.85f;
+
+            Vector3f h = normalize(wi + wo);
+
+            float ndf = GGX_NDF(N, h, roughness);
+            float shadow_mask = geometry_smith(N, wi, wo, roughness);
+            fresnel(-wi, N, etat, F);
+
+            Vector3f specular = (ndf * shadow_mask * F) / std::max(4 * dotProduct(N, wo) * dotProduct(N, wi), 0.0001f);
+
+            float ks_ = F;
+            float kd_ = 1.0f - ks_;
+
+            return Ks * specular + kd_ * Kd / M_PI;
+        }
+        else
+            return Vector3f(0.0f);
+        break;
+    }
     }
 }
 
-#endif //RAYTRACING_MATERIAL_H
+#endif // RAYTRACING_MATERIAL_H

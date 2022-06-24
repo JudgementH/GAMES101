@@ -1,4 +1,4 @@
-//
+﻿//
 // Created by Göksu Güvendiren on 2019-05-14.
 //
 
@@ -87,9 +87,14 @@ Vector3f Scene::castRay(const Ray &ray, int depth) const
 
     Ray test_ray(inter.coords, normalize(light_point.coords - inter.coords));
     Intersection test_inter = intersect(test_ray);
-    if ((test_inter.coords - light_point.coords).norm() < eps)
+    if (test_inter.distance - light_point.distance < eps)
     {
-        l_dir += light_point.emit * dotProduct(light_point.normal, -test_ray.direction) / std::pow((light_point.coords - inter.coords).norm(), 2) * dotProduct(inter.normal, test_ray.direction) * inter.m->eval(test_ray.direction, -ray.direction, inter.normal) / light_point_prob;
+        l_dir += light_point.emit *
+                 dotProduct(light_point.normal, -test_ray.direction) /
+                 std::pow((light_point.coords - inter.coords).norm(), 2) *
+                 dotProduct(inter.normal, test_ray.direction) *
+                 inter.m->eval(test_ray.direction, -ray.direction, inter.normal) /
+                 light_point_prob;
     }
 
     // indirection light
@@ -102,7 +107,10 @@ Vector3f Scene::castRay(const Ray &ray, int depth) const
         Intersection inter_indir = intersect(ray_in);
         if (inter_indir.happened && (!inter_indir.m->hasEmission()))
         {
-            l_indir += castRay(ray_in, depth + 1) * dotProduct(inter.normal, ray_in.direction) * inter.m->eval(w_in, -ray.direction, inter.normal) / inter.m->pdf(w_in, -ray.direction, inter.normal) / RussianRoulette;
+            l_indir += castRay(ray_in, depth + 1) *
+                       dotProduct(inter.normal, ray_in.direction) *
+                       inter.m->eval(w_in, -ray.direction, inter.normal) /
+                       inter.m->pdf(w_in, -ray.direction, inter.normal) / RussianRoulette;
         }
     }
     return l_dir + l_indir;
